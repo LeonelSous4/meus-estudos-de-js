@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treino de DOM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1 id="titulo-principal">Minha Lista</h1>
+
+        <p class="paragraph">Digite abaixo</p>
+        <p class="paragraph">Digite abaixo</p>
+
+        <div class="input-group">
+
+            <input value="Valor-input"  name="Input-do-html" type="text" id="campo-tarefa" placeholder="Digite uma tarefa...">
+            <button id="btn-adicionar">Adicionar</button>
+        </div>
+
+        <ul id="lista-tarefas">
+            <li class="tarefa-item">Exemplo de tarefa estática</li>
+
+             <input name="Input-do-html" type="text"  id="campo-tarefa" placeholder="Digite uma tarefa...">
+
+             
+             <p class="paragraph"> Paragrafo </p>
+        </ul>
+                
+        
+        <button
+        
+        onclick="myFunction()" 
+
+        id="btn-limpar" class="btn-perigo">Limpar Tudo</button>
+
+        <select name="seletor" id="seletor">
+            <option value="opção 1">opção 1</option>
+            <option value="opção 2">opção 2</option>
+            <option value="opção 3">opção 3</option>
+            <option value="opção 4">opção 4</option>
+            <option value="opção 5">opção 5</option>
+
+
+        </select>
+    </div>
+
+    <script src="event.listening.js"></script>
+
+    <!-- <script src="manipulationStyle.js"></script> -->
+    
+    <!-- <script src="manipulation.js"></script> -->
+
+    <!-- <script src="script.js"></script> -->
+</body>
+</html>
