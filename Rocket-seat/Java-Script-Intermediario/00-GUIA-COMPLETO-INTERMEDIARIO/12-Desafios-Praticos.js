@@ -37,13 +37,10 @@ console.log(`
 
 function filtrarDobrarSomar(números) {
   // TODO: Sua solução aqui
-  return números
-    .filter(n => n % 2 === 0)
-    .map(n => n * 2)
-    .reduce((acc, n) => acc + n, 0);
 }
 
-console.log('Resultado:', filtrarDobrarSomar([1, 2, 3, 4, 5, 6])); // 24
+// Teste aqui:
+// console.log('Resultado:', filtrarDobrarSomar([1, 2, 3, 4, 5, 6])); // 24
 
 // ==========================================
 // 🌟 DESAFIO 2: Contar Frequência de Palavras
@@ -64,14 +61,10 @@ console.log(`
 
 function contarPalavras(texto) {
   // TODO: Sua solução aqui
-  const palavras = texto.toLowerCase().split(' ');
-  return palavras.reduce((acc, palavra) => {
-    acc[palavra] = (acc[palavra] || 0) + 1;
-    return acc;
-  }, {});
 }
 
-console.log('Resultado:', contarPalavras('javascript python javascript python java'));
+// Teste aqui:
+// console.log('Resultado:', contarPalavras('javascript python javascript python java'));
 
 // ==========================================
 // 🌟 DESAFIO 3: Composição de Funções
@@ -95,15 +88,13 @@ console.log(`
 
 function compose(...funcs) {
   // TODO: Sua solução aqui
-  return (valor) => {
-    return funcs.reduceRight((acc, func) => func(acc), valor);
-  };
 }
 
-const add5 = x => x + 5;
-const mult2 = x => x * 2;
-const comp = compose(mult2, add5);
-console.log('Resultado:', comp(10)); // 30
+// Teste aqui:
+// const add5 = x => x + 5;
+// const mult2 = x => x * 2;
+// const comp = compose(mult2, add5);
+// console.log('Resultado:', comp(10)); // 30
 
 // ==========================================
 // 🌟 DESAFIO 4: Validar CPF
@@ -126,19 +117,11 @@ console.log(`
 
 function validarCPF(cpf) {
   // TODO: Sua solução aqui
-  const apenasDigitos = cpf.replace(/\D/g, '');
-  
-  if (apenasDigitos.length !== 11) return false;
-  
-  const todosIguais = apenasDigitos.split('').every(
-    d => d === apenasDigitos[0]
-  );
-  
-  return !todosIguais;
 }
 
-console.log('12345678901:', validarCPF('12345678901')); // true
-console.log('11111111111:', validarCPF('11111111111')); // false
+// Teste aqui:
+// console.log('12345678901:', validarCPF('12345678901')); // true
+// console.log('11111111111:', validarCPF('11111111111')); // false
 
 // ==========================================
 // 🌟 DESAFIO 5: Cache de Função
@@ -158,29 +141,14 @@ console.log(`
   fibMemo(40) // Muito mais rápido na segunda chamada
 `);
 
-function memoizar(func) {
-  // TODO: Sua solução aqui
-  const cache = {};
-  return function(...args) {
-    const chave = JSON.stringify(args);
-    if (chave in cache) {
-      return cache[chave];
-    }
-    const resultado = func(...args);
-    cache[chave] = resultado;
-    return resultado;
-  };
+function criarCache(func) {
+  // TODO: Sua solução aqui (use Map ou objetos, SEM JSON!)
 }
 
-const fib = n => n <= 1 ? n : fib(n - 1) + fib(n - 2);
-const fibMemo = memoizar(fib);
-console.time('Sem memo');
-console.log('fib(35):', fib(35));
-console.timeEnd('Sem memo');
-
-console.time('Com memo');
-console.log('fibMemo(35):', fibMemo(35));
-console.timeEnd('Com memo');
+// Teste aqui:
+// const fib = n => n <= 1 ? n : fib(n - 1) + fib(n - 2);
+// const fibCache = criarCache(fib);
+// console.log('fib(30):', fibCache(30));
 
 // ==========================================
 // 🌟 DESAFIO 6: Validador de Formulário
@@ -202,27 +170,13 @@ console.log(`
   // { nome: 'Inválido', email: 'Inválido', idade: 'Inválido' }
 `);
 
-function validador(dados) {
+function validar(dados) {
   // TODO: Sua solução aqui
-  const erros = {};
-  
-  if (!dados.nome || dados.nome.length < 3) {
-    erros.nome = 'Nome deve ter 3+ caracteres';
-  }
-  
-  if (!dados.email || !dados.email.includes('@')) {
-    erros.email = 'Email inválido';
-  }
-  
-  if (!dados.idade || dados.idade < 18) {
-    erros.idade = 'Deve ter 18+';
-  }
-  
-  return Object.keys(erros).length === 0 ? { sucesso: true } : erros;
 }
 
-console.log('Resultado:', validador({ nome: 'Jo', email: 'Jo', idade: 15 }));
-console.log('Resultado:', validador({ nome: 'João', email: 'joao@email.com', idade: 25 }));
+// Teste aqui:
+// console.log('Inválido:', validar({ nome: 'Jo', email: 'jo', idade: 15 }));
+// console.log('Válido:', validar({ nome: 'João', email: 'joao@email.com', idade: 25 }));
 
 // ==========================================
 // 🌟 DESAFIO 7: Classe com Privacidade
@@ -242,37 +196,12 @@ console.log(`
 
 class Conta {
   // TODO: Sua solução aqui
-  #saldo = 0;
-  
-  constructor(saldoInicial = 0) {
-    this.#saldo = saldoInicial;
-  }
-  
-  depositar(valor) {
-    if (valor > 0) {
-      this.#saldo += valor;
-      return `Depositou R$ ${valor}`;
-    }
-    return 'Valor inválido';
-  }
-  
-  sacar(valor) {
-    if (valor > this.#saldo) {
-      return 'Saldo insuficiente';
-    }
-    this.#saldo -= valor;
-    return `Sacou R$ ${valor}`;
-  }
-  
-  consultarSaldo() {
-    return this.#saldo;
-  }
 }
 
-const conta = new Conta(1000);
-console.log(conta.depositar(500));
-console.log(conta.sacar(200));
-console.log('Saldo:', conta.consultarSaldo());
+// Teste aqui:
+// const minhaConta = new Conta(1000);
+// console.log(minhaConta.depositar(500));
+// console.log(minhaConta.sacar(200));
 
 // ==========================================
 // 🌟 DESAFIO 8: Array Multidimensional
@@ -291,15 +220,11 @@ console.log(`
 `);
 
 function achatar(arr) {
-  // TODO: Sua solução aqui
-  return arr.reduce((acc, val) => {
-    return acc.concat(
-      Array.isArray(val) ? achatar(val) : val
-    );
-  }, []);
+  // TODO: Sua solução aqui (use recursão!)
 }
 
-console.log('Resultado:', achatar([1, [2, 3, [4, 5]]])); // [1,2,3,4,5]
+// Teste aqui:
+// console.log('Resultado:', achatar([1, [2, 3, [4, 5]]])); // [1,2,3,4,5]
 
 // ==========================================
 // 🌟 DESAFIO 9: Debounce
@@ -323,19 +248,13 @@ console.log(`
 
 function debounce(func, delay) {
   // TODO: Sua solução aqui
-  let timeoutId;
-  return function(...args) {
-    clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => {
-      func(...args);
-    }, delay);
-  };
 }
 
-const buscar = debounce(console.log, 500);
-buscar('a');
-buscar('ab');
-buscar('abc'); // Apenas isso executará
+// Teste aqui:
+// const buscar = debounce(console.log, 300);
+// buscar('a');
+// buscar('ab');
+// buscar('abc');
 
 // ==========================================
 // 🌟 DESAFIO 10: Objeto com Getters
@@ -353,26 +272,11 @@ console.log(`
 
 class Pessoa {
   // TODO: Sua solução aqui
-  constructor(nome, dataNascimento) {
-    this.nome = nome;
-    this._dataNascimento = new Date(dataNascimento);
-  }
-  
-  get idade() {
-    const hoje = new Date();
-    let age = hoje.getFullYear() - this._dataNascimento.getFullYear();
-    const mês = hoje.getMonth() - this._dataNascimento.getMonth();
-    if (mês < 0) age--;
-    return age;
-  }
-  
-  set dataNascimento(data) {
-    this._dataNascimento = new Date(data);
-  }
 }
 
-const p = new Pessoa('João', '1995-05-15');
-console.log(`${p.nome} têm ${p.idade} anos`);
+// Teste aqui:
+// const pessoa = new Pessoa('João', '1995-05-15');
+// console.log(`${pessoa.nome} tem ${pessoa.idade} anos`);
 
 // ==========================================
 // 🌟 DESAFIO 11: Fila (Queue)
@@ -392,33 +296,13 @@ console.log(`
 
 class Fila {
   // TODO: Sua solução aqui
-  constructor() {
-    this.items = [];
-  }
-  
-  enfilar(valor) {
-    this.items.push(valor);
-  }
-  
-  desenfileirar() {
-    return this.items.shift();
-  }
-  
-  get tamanho() {
-    return this.items.length;
-  }
-  
-  vazia() {
-    return this.items.length === 0;
-  }
 }
 
-const fila = new Fila();
-fila.enfilar('A');
-fila.enfilar('B');
-fila.enfilar('C');
-console.log('Saiu:', fila.desenfileirar()); // A
-console.log('Tamanho:', fila.tamanho); // 2
+// Teste aqui:
+// const fila = new Fila();
+// fila.enfilar('A');
+// fila.enfilar('B');
+// console.log(fila.desenfilar()); // A
 
 // ==========================================
 // 🌟 DESAFIO 12: Herança com Super
@@ -434,24 +318,22 @@ console.log(`
 `);
 
 class Animal {
-  constructor(nome) {
-    this.nome = nome;
-  }
-  
-  fazerSom() {
-    return 'Som genérico';
-  }
+  // TODO: Sua solução aqui
 }
 
 class Cachorro extends Animal {
   // TODO: Sua solução aqui
-  fazerSom() {
-    return `${this.nome} faz: au au`;
-  }
 }
 
-const dog = new Cachorro('Rex');
-console.log(dog.fazerSom());
+class Gato extends Animal {
+  // TODO: Sua solução aqui
+}
+
+// Teste aqui:
+// const dog = new Cachorro('Rex');
+// const cat = new Gato('Mimi');
+// console.log(dog.apresentar());
+// console.log(dog.fazerSom());
 
 // ==========================================
 // 🌟 DESAFIO 13: Desestruturação
@@ -466,12 +348,7 @@ console.log(`
   com valores padrão se não existirem.
 `);
 
-const dados = document.location = 1975; // Não tem
-
 // TODO: Sua desestruturação aqui
-const { nome: nomePessoa = 'Desconhecido', idade: idadePessoa = 30 } = dados;
-
-console.log(`Nome: ${nomePessoa}, Idade: ${idadePessoa}`);
 
 // ==========================================
 // 🌟 DESAFIO 14: Closures com Privacidade
@@ -487,19 +364,13 @@ console.log(`
 
 function criarCounter() {
   // TODO: Sua solução aqui
-  let count = 0;
-  return {
-    incrementar: () => ++count,
-    decrementar: () => --count,
-    valor: () => count
-  };
 }
 
-const cont = criarCounter();
-console.log('Inc:', cont.incrementar()); // 1
-console.log('Inc:', cont.incrementar()); // 2
-console.log('Dec:', cont.decrementar()); // 1
-console.log('Valor:', cont.valor()); // 1
+// Teste aqui:
+// const cont = criarCounter();
+// console.log('Inc:', cont.incrementar()); // 1
+// console.log('Inc:', cont.incrementar()); // 2
+// console.log('Dec:', cont.decrementar()); // 1
 
 // ==========================================
 // 🌟 DESAFIO 15: SUPER DESAFIO - Mini Todo App
@@ -518,47 +389,9 @@ console.log(`
   - estadísticas()
 `);
 
-class TodoApp {
+// class TodoApp {
   // TODO: Sua solução aqui
-  constructor() {
-    this.tarefas = [];
-    this.id = 0;
-  }
-  
-  adicionar(nome) {
-    this.tarefas.push({ id: ++this.id, nome, concluida: false });
-    return `Tarefa adicionada`;
-  }
-  
-  remover(id) {
-    this.tarefas = this.tarefas.filter(t => t.id !== id);
-    return `Tarefa removida`;
-  }
-  
-  marcarConcluida(id) {
-    const tarefa = this.tarefas.find(t => t.id === id);
-    if (tarefa) tarefa.concluida = true;
-  }
-  
-  listar() {
-    return this.tarefas.map(t => 
-      `${t.id}. [${t.concluida ? '✓' : ' '}] ${t.nome}`
-    );
-  }
-  
-  estatísticas() {
-    const total = this.tarefas.length;
-    const concluidas = this.tarefas.filter(t => t.concluida).length;
-    return { total, concluidas, pendentes: total - concluidas };
-  }
-}
-
-const app = new TodoApp();
-app.adicionar('Aprender JS');
-app.adicionar('Fazer desafios');
-app.marcarConcluida(1);
-console.log(app.listar());
-console.log('Stats:', app.estatísticas());
+// }\n\n // Teste aqui:\n// const app = new TodoApp();\n// app.adicionar('Aprender JS');\n// app.adicionar('Fazer desafios');\n// app.marcarConcluida(1);\n// console.log(app.listar());\n// console.log('Stats:', app.estatísticas());
 
 // ==========================================
 // 🏁 CONCLUSÃO

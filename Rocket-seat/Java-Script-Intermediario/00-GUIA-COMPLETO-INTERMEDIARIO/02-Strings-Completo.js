@@ -187,6 +187,7 @@ console.log('\n--- SEÇÃO 6: Preenchimento (Padding) ---\n');
 
 // 6.1 -  padStart(): Preenche no INÍCIO
 console.log('📌 6.1 - padStart()\n');
+
 const numero = '42';
 console.log('Número:', numero);
 console.log('padStart(5, "0"):', numero.padStart(5, '0')); // '00042'

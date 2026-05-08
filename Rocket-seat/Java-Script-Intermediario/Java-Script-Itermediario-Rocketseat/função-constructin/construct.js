@@ -2,19 +2,21 @@
  * Função Fábrica (Factory Function)
  * Uma função que retorna um novo objeto cada vez que é chamada.
  */
-function CreateProduct(name) {
+function CreateProduct(name, price) {
     // 1. Criamos um objeto literal vazio que servirá de 'molde'
     const product = {};
 
     // 2. Definimos a propriedade 'name' do objeto.
     // O valor vem do parâmetro que passamos na chamada da função.
     product.name = name;
+    product.price = price;
 
     // 3. Adicionamos um método (uma função dentro do objeto).
     product.details = function() {
         // 'this' refere-se ao objeto que possui o método no momento da execução.
         // Se chamarmos product1.details(), 'this' será o product1.
         console.log(`O nome do produto é ${this.name}`);
+        console.log(`O preço do produto é R$ ${this.price}`);
     };
 
     // 4. IMPORTANTE: Retornamos o objeto preenchido.
@@ -42,3 +44,7 @@ product1.details();         // Imprime: O nome do produto é teclado
 const product2 = new CreateProduct("mouse");
 console.log(product2.name); // Imprime: mouse
 product2.details();         // Imprime: O nome do produto é mouse
+
+const Product3 = new CreateProduct("monitor", 1500);
+console.log(Product3);
+Product3.details();

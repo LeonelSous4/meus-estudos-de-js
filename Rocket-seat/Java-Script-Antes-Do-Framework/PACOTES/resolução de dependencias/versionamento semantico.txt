@@ -1,0 +1,27 @@
+Versionamento semantico
+
+    9.1.3
+
+    9 (major) aumenta quando sao feitas alterações incompativeis
+    1 (miror) versão menor aumenta quando sao adicionadas novas funcionalidades
+    3 (patch) aumenta quando tem correções de bugs
+
+
+
+    ~4.12.34
+
+    ~ o til(~) ele permite atualizações automaticas para versões compativeis
+
+
+
+
+    ^4.54.56
+
+    ^ o (^) indica que o npm pode instlar automaticamente versões mais recentes compativeis, mas não a proxima versão compativel
+
+
+
+
+
+    @ o (@) quando usa o @ antes da versão ele indica uma versão exata que o npm instalará
+

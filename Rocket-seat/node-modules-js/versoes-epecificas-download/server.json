@@ -1,0 +1,42 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john@example.com"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane@example.com"
+    },
+    {
+      "id": 3,
+      "name": "Leonel",
+      "age": 21
+    },
+    {
+        "Leonel": [
+            {
+                "id": 1,
+                "name": "Leonel",
+                "age": 21
+            }
+        ]
+    }
+  ],
+  "cars": [
+    {
+      "id": 1,
+      "make": "Toyota",
+      "model": "Camry",
+      "year": 2020
+    },
+    {
+      "id": 2,
+      "make": "Honda",
+      "model": "Civic",
+      "year": 2019
+    }
+  ]
+}

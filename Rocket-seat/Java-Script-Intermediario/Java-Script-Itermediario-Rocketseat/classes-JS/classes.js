@@ -4,13 +4,13 @@ class Person {
 
     // constructor é uma função que vai ser ativada sempre que a class for instanciada
 
-    constructor(name) {
-        console.log(`Meu nome é`, name)
+    constructor(name, age, weight) {
+        console.log(`Meu nome é`, name, 'e tenho', age, 'anos', 'e peso', weight, 'kg')
     }
 }
 
 // Instanciando
-const person = new Person("Leonel")
+const person = new Person("Leonel", 25, 70)
 
 
 
