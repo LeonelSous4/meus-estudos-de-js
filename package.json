@@ -1,9 +1,12 @@
 {
   "scripts": {
-    "server": "json-server Rocket-seat\\node-modules-js\\json.server\\server.json --port 4444"
-    
+    "server": "json-server Rocket-seat\\node-modules-js\\json.server\\server.json --port 5555"
   },
   "dependencies": {
     "json-server": "^1.0.0-beta.15"
+  },
+  "devDependencies": {
+    "webpack": "^5.106.2",
+    "webpack-cli": "^7.0.2"
   }
 }

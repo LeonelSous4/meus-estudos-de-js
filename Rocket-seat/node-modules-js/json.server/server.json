@@ -1,40 +1,48 @@
-
-
 {
-  "users": [
+  "Users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "John Doe",
       "email": "john@example.com"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Jane Smith",
       "email": "jane@example.com"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "xano",
       "email": "xano@example.com"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "lisca",
       "email": "lisca@example.com"
+    },
+    {
+      "id": "ZroorxU9xaE",
+      "nome": ""
+    },
+    {
+      "id": "7bTUDxeuUWA",
+      "name": "Chico são",
+      "price": "22.000"
     }
   ],
   "cars": [
     {
-      "id": 1,
+      "id": "1",
       "make": "Toyota",
       "model": "Camry",
       "year": 2020
     },
     {
-      "id": 2,
+      "id": "2",
       "make": "Honda",
       "model": "Civic",
       "year": 2019
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
